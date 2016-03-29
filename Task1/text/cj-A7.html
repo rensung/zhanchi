@@ -1,0 +1,836 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <title>实现常见的技术产品官网的页面架构及样式布局</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="./css/usaki.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<style>
+*, *:before, *:after {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+body {
+    font-family:"Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    margin:0;
+    color:#333;
+}
+img {
+    border:0;
+    vertical-align:bottom;
+}
+a {
+    display:inline-block;
+    color:inherit;
+    text-decoration:none;
+    cursor:pointer;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight:normal;
+}
+table {
+    border-spacing:0;
+    border-collapse:collapse;
+    background-color:transparent;
+}
+input {
+    margin:0;
+    font:inherit;
+    color:inherit;
+}
+/* global */
+.title-f21 {
+    margin:10px auto;
+    font-size:21px;
+    line-height:30px;
+}
+.sub-f12 {
+    margin:10px auto;
+    font-size:12px;
+    line-height:18px;
+}
+.btn {
+    cursor:pointer;
+}
+.fa-Hei {
+    font-family:SimHei, Arial, sans-serif;
+}
+.fa-Sun {
+    font-family:SimSun , Arial, sans-serif;
+}
+.fa-red {
+    color:#e74f4d;
+}
+.cont-w1170, .lim-w1170 {
+    position:relative;
+    margin:0 auto;
+}
+.cont-w1170 {
+    width:1170px;
+}
+.lim-w1170 {
+    min-width:1170px;
+}
+.w1of2, .w1of3, .w2of3, .w1of4 {
+    display:inline-block;
+    vertical-align:top;
+}
+.w1of2 {
+    width:50%;
+}
+.w1of3 {
+    width:33.33%;
+}
+.w2of3 {
+    width:66.67%;
+}
+.w1of4 {
+    width:25%;
+}
+.mask, .mask, .mask {
+    position:absolute; top:0; bottom:0; left:0; right:0;
+    background-color:rgba(0,0,0,.2);
+}
+.banner .mask {
+    
+}
+.city .mask {
+    background-color:rgba(170,52,51,.2);
+}
+.new-age-pic .mask {
+    background-color:rgba(0,0,0,.4);
+}
+.hr-w30-white {
+    width:30px;
+    margin:5px auto;
+    border:1px solid #fff;
+}
+.hr-w30-cray {
+    width:30px;
+    margin:5px auto;
+    border:1px solid #aaa;
+}
+.pull-arrow {
+    display:inline-block;
+    position:relative;
+    width:19px; height:18px;
+    padding:6px 3px 5px;
+    vertical-align:top;
+    text-align:left;
+}
+.pull-arrow-out, .pull-arrow-in {
+    position:absolute;
+    width:13px; height:7px;
+    border:6px solid transparent;
+    border-top:7px solid #000;
+    border-bottom:0;
+}
+.pull-arrow-in {
+    margin-top:-1px;
+    border-top-color:#fff;
+}
+/* header */
+.header {
+    height:57px;
+}
+.logo {
+    position:absolute;
+    padding:13px 10px;
+}
+.logo-img {
+    width:31px; height:31px;
+    margin-right:10px;
+}
+.logo-title {
+    display:inline-block;
+    color:#393a3a;
+    font-size:21px
+}
+.nav {
+    position:absolute; top:0; right:0;
+}
+.nav-btn {
+    display:none;
+}
+.nav-item {
+    margin-left:10px;
+    padding:16px 18px;
+    color:#787b83;
+    font-size:14px; line-height:20px;
+}
+.nav-item.act, .nav-item:hover {
+    border-bottom:5px solid #e74f4d;
+    color:#e74f4d;
+}
+.login {
+    color:#e74f4d;
+}
+.login-img {
+    margin-right:5px;
+}
+/* banner */
+.banner {
+    height:690px;
+    overflow:hidden;
+    background:url("https://coding.net/u/usaki/p/ife/git/raw/master/ife_7/img/banner.jpg") no-repeat top center;
+    background-size:cover;
+    color:#fff;
+}
+.banner-title {
+    margin:0 auto 0 117px;
+    margin-top:230px;
+    font-size:60px;
+}
+.banner-text {
+    margin:20px auto 0 124px;
+    font-size:21px; line-height:16px;
+}
+.banner-btn {
+    width:331px; height:65px;
+    margin:66px auto 0 126px;
+    background-color:#e74f4d;
+    font-size:30px; line-height:65px;
+    text-align:center;
+    letter-spacing:.1em;
+}
+/* 2 */
+.point {
+    display:inline-block;
+    width:25%; height:250px;
+    color:#777;
+    text-align:center;
+    vertical-align:top;
+}
+.point-img {
+    width:42px; height:42px;
+    margin:45px 0;
+}
+.point-text {
+    height:54px;
+    margin:auto;
+    padding:0 65px;
+    border-left:1px solid #777;
+    font-size:14px; line-height:18px;
+}
+.point:first-child .point-text {
+    border-left:0;
+}
+/* 3 */
+.ask {
+    height:360px;
+    background-color:#ededec;
+    color:rgba(51,51,51,.5);
+    text-align:center;
+}
+.ask-img {
+    width:91px; height:92px;
+    margin-top:89px;
+}
+.ask-title {
+    font-size:54px;
+}
+/* 4 */
+.city {
+    height:340px;
+    background:url("https://coding.net/u/usaki/p/ife/git/raw/master/ife_7/img/map.jpg") no-repeat top center;
+    background-size:cover;
+    color:#fff;
+    text-align:center;
+}
+.city-title {
+    margin:0 auto 8px;
+    margin-top:50px;
+    font-size:21px;
+}
+.city-text {
+    font-size:12px;
+    margin-top:20px;
+}
+.city-form {
+    position:relative; z-index:1;
+    margin-top:50px;
+}
+.city-form-list {
+    position:relative;
+    display:inline-block;
+    width:236px; height:36px;
+    margin:0 14px;
+    vertical-align:top;
+    text-align:left;
+}
+.city-form-sel-cont {
+    position:absolute; top:0; left:0;
+    font-size:12px;
+}
+.city-form-sel-cont:hover {
+    outline:1px solid #be4e48;
+}
+.city-form-sel-tog, .city-form-input.btn {
+    width:236px; height:36px;
+    margin:0 auto;
+    border:0;
+}
+.city-form-sel-tog, .city-form-input.btn, .city-form-opt {
+    cursor:pointer;
+}
+.city-form-sel-tog {
+    padding:9px 0 9px 12px;
+    background-color:#fff;
+    color:#aaa;
+}
+.city-form-input.btn {
+    background-color:#be4e48;
+    color:#fff;
+    font-size:14px;
+    text-align:center;
+    word-spacing:1.4em;
+}
+.city-form-sel {
+    display:none;
+    margin:0 auto;
+    padding:0;
+    background-color:#e3e3e4;
+}
+.city-form-sel-cont:hover .city-form-sel {
+    display:block;
+}
+/* temp */.city-form-sel-cont.show {
+    outline:1px solid #be4e48;
+    
+}
+/* temp */.city-form-sel-cont.show .city-form-sel {
+    display:block;
+}
+.city-form-sel-tog .pull-arrow {
+    position:absolute; top:0; right:0;
+    margin:9px 9px;
+    background-color:#be4e48;
+}
+.city-form-sel-tog .pull-arrow-out {
+    border-top-color:#fff;
+}
+.city-form-sel-tog .pull-arrow-in {
+    border-top-color:#be4e48;
+}
+.city-form-opt {
+    position:relative;
+    list-style:none;
+    height:26px;
+}
+.city-form-opt-rad, .city-form-opt-lab {
+    position:absolute;
+    width:100%; height:26px;
+}
+.city-form-opt-rad {
+    z-index:-1;
+    opacity:0;
+}
+.city-form-opt-lab {
+    padding:4px 0 4px 32px;
+    color:#333;
+    line-height:18px;
+}
+.city-form-opt-lab.act, .city-form-opt:hover .city-form-opt-lab{
+    background-color:#be4e48;
+    color:#fff;
+}
+.city-form-opt-lab.act:before {
+    content:"";
+    position:absolute; top:8px; left:9px;
+    width:12px; height:8px;
+    background:url("https://coding.net/u/usaki/p/ife/git/raw/master/ife_7/img/hook.png") no-repeat;
+}
+/* 5 */
+.activity {
+    background-color:#f7f7f7;
+    text-align:center;
+}
+.activity-pic {
+    display:inline-block;
+    width:219px; height:390px;
+    margin:100px 18px 115px;
+    vertical-align:top;
+}
+.activity-pic-cont {
+    width:219px; height:336px;
+    margin:5px auto;
+    padding:12px 8px;
+    box-shadow:0 0 1px #5c5d5d;
+    background-color:#fff;
+}
+.activity-pic-title {
+    margin:0 auto;
+    font-size:15px; line-height:30px;
+    font-weight:bold;
+}
+.activity-pic-title.b {
+    font-size:22px;
+    word-spacing:1.4em;
+    font-weight:normal;
+}
+.activity-pic-text {
+    margin:5px auto;
+    font-size:12px; line-height:14px;
+}
+/* 6, 7 */
+.new-time, .new-age {
+    position:relative;
+    padding:100px 70px;
+    text-align:center;
+}
+.new-time {
+    height:566px;
+}
+.new-age {
+    height:520px;
+}
+.new-banner {
+    padding-top:130px;
+    background:url("https://coding.net/u/usaki/p/ife/git/raw/master/ife_7/img/new-time.jpg") no-repeat top center;
+    background-size:cover;
+    color:#fff;
+}
+.new-age.red {
+    background-color:#e74f4d;
+    color:#fff;
+}
+.new-age-pic {
+    background:url("https://coding.net/u/usaki/p/ife/git/raw/master/ife_7/img/new-age.jpg") no-repeat top center;
+    background-size:cover;
+}
+.arrow-l, .arrow-r {
+    position:absolute; top:50%;
+    width:25px; height:30px;
+    margin-top:-15px;
+    border:15px solid transparent;
+}
+.arrow-l {
+    left:0;
+    border-left:25px solid #fff;
+    border-right:0;
+}
+.arrow-r {
+    right:0;
+    border-left:0;
+    border-right:25px solid #fff;
+}
+.new-banner-title {
+    margin:0 auto;
+    font-size:50px; line-height:1em;
+}
+.new-banner-title.b {
+    font-size:158px;
+}
+.new-banner-local {
+    display:inline-block;
+    margin:0 auto;
+    font-size:22px; line-height:44px;
+    text-align:left;
+}
+.new-time-title, .new-age-title {
+    margin:0 auto 20px;
+    font-size:21px; line-height:30px;
+}
+.new-time-title {
+    margin-top:62px;
+}
+.new-age-title {
+    margin-top:70px;
+}
+.new-time-text {
+    margin:0 auto 20px;
+    color:#aaa;
+    font-size:12px; line-height:30px;
+    text-align:left;
+}
+.new-btn {
+    margin:25px auto;
+    padding:10px 44px;
+    border:1px solid #e25c60;
+    color:#e25c60;
+    font-size:21px; line-height:24px;
+}
+.new-btn.s {
+    padding:10px 30px;
+    font-size:12px; line-height:15px;
+}
+.new-btn.while {
+    border-color:#fff;
+    color:#fff;
+}
+.slider {
+    margin:0 auto;
+    padding:0;
+}
+.slider-bar {
+    display:inline-block;
+    list-style:none;
+    width:12px; height:12px;
+    margin:0 7px;
+    border:1px solid #929292;
+    border-radius:50%;
+    cursor:pointer;
+    vertical-align:top;
+}
+.slider-bar.act {
+    background-color:#929292;
+}
+/* 8 */
+.join {
+    padding:100px 0;
+    text-align:center;
+}
+.join-title {
+    margin:15px auto 20px;
+    font-size:21px; line-height:30px;
+}
+.join-text {
+    margin:10px auto;
+    color:#aaa;
+    font-size:12px; line-height:18px;
+}
+.join-main {
+    margin:40px auto 0;
+    padding:50px 0;
+    color:rgba(35,24,21,.8);
+}
+.join-info {
+    padding:10px 0 0 60px;
+    text-align:left;
+}
+.join-info-art {
+    margin-bottom:10px;
+}
+.join-info-title {
+    margin:0 auto 25px;
+    font-size:14px; line-height:18px;
+}
+.join-info-text {
+    margin:0 auto 10px;
+    color:rgba(35,24,21,.6);
+    font-size:12px; line-height:21px;
+}
+.join-info-more {
+    color:rgb(35,24,21);
+    font-size:14px;
+    text-align:right;
+}
+.join-info-more .pull-arrow {
+    width:20px; height:16px;
+    margin-right:8px;
+    padding:7px 5px 4px;
+}
+.join-info-more .pull-arrow-out, .join-info-more .pull-arrow-in {
+    width:10px; height:5px;
+    border-width:5px 5px 0;
+}
+.join-info-more .pull-arrow-out {
+    border-top-color:rgba(35,24,21,.6);
+}
+.join-form-list {
+    margin:0 auto;
+    padding:0 60px;
+}
+.join-form-item {
+    list-style:none;
+    padding:10px;
+}
+.join-form-input {
+    width:100%; height:40px;
+    padding:12px 17px;
+    border:0;
+    background-color:#eee;
+    font-size:12px; line-height:16px;
+}
+.join-form-input.tarea {
+    resize:none;
+    height:120px;
+}
+.join-form-input.btn {
+    font-size:14px;
+}
+.footer {
+    padding:85px 0 75px;
+    background-color:#32353e;
+    color:#fff;
+    text-align:center;
+}
+.footer-title {
+    font-size:21px; line-height:35px;
+    font-weight:normal;
+}
+.footer-text {
+    font-size:12px; line-height:18px;
+}
+.footer-form {
+    margin:25px;
+}
+.footer-form-input {
+    height:41px;
+    margin:0 auto;
+    padding:10px;
+    border:0;
+    line-height:21px;
+}
+.footer-form-input.text {
+    width:430px;
+    color:#333;
+    font-size:14px;
+}
+.footer-form-input.btn {
+    width:80px;
+    background-color:rgba(255,255,255,.3);
+    font-size:15px;
+    text-align:center;
+    word-spacing:.4em;
+}
+.footer-link {
+    height:35px;
+    margin:8px;
+    padding:5px;
+}
+.copy {
+    height:56px;
+    padding-top:28px;
+    background-color:#2f3038;
+    color:#fff;
+    font-size:12px; line-height:16px;
+}
+.copy-text {
+    margin-left:100px;
+}
+.b2t {
+    position:absolute; bottom:0; right:0;
+    margin:5px 30px;
+    padding:10px;
+}</style>
+<body>
+    <div class="header cont-w1170">
+        <a class="logo" href="javascript:;"><img src="http://ife-e1e86.coding.io/ife_7/img/logo.png" alt="fg"/><span class="logo-title fa-Hei">新世界</span>
+        </a>
+        <div class="nav">
+            <a class="nav-item act" href="javascript:;">首页</a
+            ><a class="nav-item" href="javascript:;">最新活动</a
+            ><a class="nav-item" href="javascript:;">项目介绍</a
+            ><a class="nav-item" href="javascript:;">爱心社区</a
+            ><a class="nav-item" href="javascript:;">关于我们</a
+            ><a class="nav-item login" href="javascript:;"><img src="http://ife-e1e86.coding.io/ife_7/img/login.png" alt="bn"/><span>登录</span>
+            </a>
+        </div>
+</div>
+    <div class="banner lim-w1170">
+      <div class="mask">
+        <h2 class="banner-title">Time of new life</h2>
+        <p class="banner-text">新时代，年轻的人们让我们一起<br><br>体验新生活，享受新生活</p>
+        <a class="banner-btn" href="javascript:;">开始体验</a>
+    </div></div>
+    <div class="lim-w1170">
+        <div class="point"><img src="http://ife-e1e86.coding.io/ife_7/img/circle.png" alt="lo"/>
+          <p class="point-text">打造全新世界观，让你更爱你的生活</p>
+      </div
+        ><div class="point"><img src="http://ife-e1e86.coding.io/ife_7/img/flag.png" alt="po"/>
+        <p class="point-text">丰富多彩的公益活动，发挥新世界的主人公意识</p>
+        </div
+        ><div class="point"><img src="http://ife-e1e86.coding.io/ife_7/img/flower.png" alt="lp"/>
+          <p class="point-text">时尚的新理念，超前体验未知的生活</p>
+        </div
+        ><div class="point"><img src="http://ife-e1e86.coding.io/ife_7/img/block.png" alt="lk"/>
+          <p class="point-text">完善的培养机制，培养你全新的世界观</p>
+        </div>
+    </div>
+    <div class="ask lim-w1170"><img src="http://ife-e1e86.coding.io/ife_7/img/books.png" alt="in"/>
+      <h2 class="ask-title fa-Hei">关于新世界，你不知道的还有什么？</h2>
+</div>
+    <div class="city lim-w1170"><div class="mask">
+        <h3 class="city-title">查找新世界城市活动信息</h3>
+        <hr class="hr-w30-white">
+        <p class="city-text">每个城市的有不同的活动信息，请自主查询您所需要了解的城市</p>
+        <form class="city-form" action="./index.html" method="get">
+            <div class="city-form-list">
+                <div class="city-form-sel-cont">
+                    <div class="city-form-sel-tog">
+                        <span id="country">中国</span>
+                        <span class="pull-arrow"><span class="pull-arrow-out"></span><span class="pull-arrow-in"></span></span>
+                    </div>
+                    <ul class="city-form-sel">
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="country_ch" type="radio" name="country" value="china">
+                            <label class="city-form-opt-lab act" for="country_ch">中国</label>
+                        </li>
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="country_en" type="radio" name="country" value="england">
+                            <label class="city-form-opt-lab" for="country_en">英国</label>
+                        </li>
+                    </ul>
+                </div>
+            </div
+            ><div class="city-form-list">
+                <div class="city-form-sel-cont show">
+                    <div class="city-form-sel-tog">
+                        <span id="province">省份</span>
+                        <span class="pull-arrow"><span class="pull-arrow-out"></span><span class="pull-arrow-in"></span></span>
+                    </div>
+                    <ul class="city-form-sel">
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="province_bj" type="radio" name="province" value="beijing">
+                            <label class="city-form-opt-lab act" for="province_bj">北京市</label>
+                        </li>
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="province_tj" type="radio" name="province" value="tianjin">
+                            <label class="city-form-opt-lab" for="province_tj">天津市</label>
+                        </li>
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="province_hb" type="radio" name="province" value="heibei">
+                            <label class="city-form-opt-lab" for="province_hb">河北省</label>
+                        </li>
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="province_sx" type="radio" name="province" value="shanxi">
+                            <label class="city-form-opt-lab" for="province_sx">陕西省</label>
+                        </li>
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="province_nmg" type="radio" name="province" value="neimenggu">
+                            <label class="city-form-opt-lab" for="province_nmg">内蒙古自治区</label>
+                        </li>
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="province_ln" type="radio" name="province" value="liaoning">
+                            <label class="city-form-opt-lab" for="province_ln">辽宁省</label>
+                        </li>
+                    </ul>
+                </div>
+            </div
+            ><div class="city-form-list">
+                <div class="city-form-sel-cont">
+                    <div class="city-form-sel-tog">
+                        <span id="city">城市</span>
+                        <span class="pull-arrow"><span class="pull-arrow-out"></span><span class="pull-arrow-in"></span></span>
+                    </div>
+                    <ul class="city-form-sel">
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="city_dc" type="radio" name="city" value="dongcheng">
+                            <label class="city-form-opt-lab" for="city_dc">东城区</label>
+                        </li>
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="city_xc" type="radio" name="city" value="xicheng">
+                            <label class="city-form-opt-lab" for="city_xc">西城区</label>
+                        </li>
+                        <li class="city-form-opt">
+                            <input class="city-form-opt-rad" id="city_hd" type="radio" name="city" value="haidian">
+                            <label class="city-form-opt-lab" for="city_hd">海淀区</label>
+                        </li>
+                    </ul>
+                </div>
+            </div
+            ><div class="city-form-list">
+                <input class="city-form-input btn" type="submit" value="搜 索">
+            </div>
+        </form>
+    </div></div>
+    <div class="activity lim-w1170">
+        <div class="activity-pic">
+            <div class="activity-pic-cont"><img src="http://ife-e1e86.coding.io/ife_7/img/pic-1.jpg" alt="xd"/></div>
+            <h3 class="activity-pic-title">北京活动</h3>
+            <p class="activity-pic-text">新社区大联盟 </p>
+        </div
+        ><div class="activity-pic">
+            <h3 class="activity-pic-title b">上 海 活 动</h3>
+            <p class="activity-pic-text">夜上海新景观探索</p>
+            <div class="activity-pic-cont"><img src="http://ife-e1e86.coding.io/ife_7/img/pic-2.jpg" alt="cd"/></div>
+        </div
+        ><div class="activity-pic">
+            <div class="activity-pic-cont"><img src="http://ife-e1e86.coding.io/ife_7/img/pic-3.jpg" alt="vf"/></div>
+            <h3 class="activity-pic-title">深圳活动</h3>
+            <p class="activity-pic-text">全新海岸线观点站</p>
+        </div
+        ><div class="activity-pic">
+            <div class="activity-pic-cont"><img src="http://ife-e1e86.coding.io/ife_7/img/pic-4.jpg" alt="hj"/></div>
+            <h3 class="activity-pic-title">香港活动</h3>
+            <p class="activity-pic-text">奢侈消费大派送</p>
+        </div>
+    </div>
+    <div class="lim-w1170">
+        <div class="new-time new-banner w2of3">
+            <div class="arrow-r"></div>
+            <h2 class="new-banner-title">新世界</h2>
+            <h2 class="new-banner-title b">TIME</h2>
+            <p class="new-banner-local">@新世界－北京<br>2016.04.01</p>
+        </div
+        ><div class="new-time w1of3">
+            <h3 class="new-time-title fa-Hei">新世界/<span class="fa-Hei fa-red">01</span></h3>
+            <p class="new-time-text fa-Sun">新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
+            <a class="new-btn s" href="javascript:;">更多详情</a>
+            <ul class="slider">
+                <li class="slider-bar act"></li
+                ><li class="slider-bar"></li
+                ><li class="slider-bar"></li>
+            </ul>
+        </div
+        ><div class="new-age red fa-Hei w1of3">
+            <h3 class="new-age-title">新时代<br>关于爱生活的我们</h3>
+            <hr class="hr-w30-white">
+            <a class="new-btn while" href="javascript:;">查看更多</a>
+        </div
+        ><div class="new-age fa-Hei w1of3">
+            <h3 class="new-age-title">新时代<br>关于爱生活的我们</h3>
+            <hr class="hr-w30-cray">
+            <a class="new-btn" href="javascript:;">查看更多</a>
+        </div
+        ><div class="new-age new-age-pic w1of3">
+            <div class="mask"></div>
+            <div class="arrow-l"></div>
+        </div>
+    </div>
+    <div class="join cont-w1170">
+        <h3 class="join-title fa-Hei">成为我们的志愿者</h3>
+        <p class="join-text">新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情<br>那就不要犹豫，快来加入我们，成为改变所有人生活的人 </p>
+        <div class="join-main fa-Sun">
+            <div class="join-info w1of3">
+                <div class="join-info-art">
+                    <h4 class="join-info-title fa-Hei">新世界志愿者协议</h4>
+                    <p class="join-info-text">加入新世界志愿者的人员必须遵守中华人民共共和国的相关法律法规，并且本着平等资源的原则 ......</p>
+                    <div class="join-info-more"><a href="javascript:;"><span class="pull-arrow"><span class="pull-arrow-out"></span><span class="pull-arrow-in"></span></span>more</a></div>
+                </div>
+                <div class="join-info-art">
+                    <h4 class="join-info-title fa-Hei">新世界志愿者权利</h4>
+                    <p class="join-info-text">新世界志愿者享受新世界内部所有资源共享的权利，并且享受所在地新世界活动的优先参与资格 ......</p>
+                    <div class="join-info-more"><a href="javascript:;"><span class="pull-arrow"><span class="pull-arrow-out"></span><span class="pull-arrow-in"></span></span>more</a></div>
+                </div>
+                <div class="join-info-art">
+                    <h4 class="join-info-title fa-Hei">更多条款</h4>
+                    <p class="join-info-text"></p>
+                    <div class="join-info-more"><a href="javascript:;"><span class="pull-arrow"><span class="pull-arrow-out"></span><span class="pull-arrow-in"></span></span>more</a></div>
+                </div>
+            </div
+            ><form class="join-form w2of3" action="./index.html" method="post">
+                <ul class="join-form-list">
+                    <li class="join-form-item w1of2"><input class="join-form-input" type="text" name="name" placeholder="姓名"></li
+                    ><li class="join-form-item w1of2"><input class="join-form-input" type="text" name="age" placeholder="年龄"></li
+                    ><li class="join-form-item w1of2"><input class="join-form-input" type="text" name="tel" placeholder="联系方式"></li
+                    ><li class="join-form-item w1of2"><input class="join-form-input" type="text" name="address" placeholder="联系地址"></li
+                    ><li class="join-form-item"><textarea class="join-form-input tarea" type="text" name="summary" placeholder="请简单描述您梦想的生活："></textarea></li
+                    ><li class="join-form-item"><input class="join-form-input btn fa-Hei" type="submit" value="提交申请"></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <div class="footer lim-w1170">
+        <div class="footer-title fa-Hei">联系我们</div>
+        <div class="footer-text fa-Sun">为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯<br>也可以通过以下任何方式关注我们动态</div>
+        <form class="footer-form" action="./index.html" method="post">
+            <input class="footer-form-input text" type="text" name="email" placeholder="someone@email.com"
+            ><input class="footer-form-input btn" type="submit" value="提 交">
+        </form>
+        <div class="footer-link-cont">
+            <a class="footer-link" href="javascript:;"><img src="http://ife-e1e86.coding.io/ife_7/img/qq.png" alt="cd"/></a
+            ><a class="footer-link" href="javascript:;"><img src="http://ife-e1e86.coding.io/ife_7/img/weibo.png" alt="bx"/></a
+            ><a class="footer-link" href="javascript:;"><img src="http://ife-e1e86.coding.io/ife_7/img/twitter.png" alt="cr"/></a
+            ><a class="footer-link" href="javascript:;"><img src="http://ife-e1e86.coding.io/ife_7/img/web.png" alt="bv"/></a>
+        </div>
+    </div>
+    <div class="copy lim-w1170">
+        <div class="copy-text">@2016新世界</div>
+        <a class="b2t fa-Sun" href="#">Back to top</a>
+    </div>
+    
+</body></html>
