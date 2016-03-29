@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task5</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	font-family: "微软雅黑";
+}
+body{
+	margin: 0;	
+}
+header,footer{
+	background-color: #4D4D4D;
+	height: 60px;
+	padding: 5px;
+	/* 
+	border:1px solid transparent;
+	方案2：加了一个隐形的边框，防止子母块的垂直边距重合 
+	*/
+}
+nav{
+	float: right;
+	color: white;
+	margin-top: 5px;
+}
+nav ul li{
+	float: left;
+	margin-right: 20px;
+}
+nav ul li a{
+	color: white;
+	text-decoration:none;
+}
+header img{
+	height: 40px;
+	margin-left: 40px;
+	margin-top: 10px;
+}
+article{
+	background-color: #CCCCCC;
+	padding: 20px;
+	/* 
+	border:1px solid transparent;
+	方案2：加了一个隐形的边框，防止子母块的垂直边距重合 
+	*/
+}
+section{
+	background-color: white;
+	/* 配合方案2： margin: 20px;*/
+	padding: 20px;
+	margin-bottom: 20px;
+	box-shadow: 3px 3px 5px #717171;
+	/* 
+	使用不同的边框粗细模拟阴影
+	border-style: solid;
+	border-color: #848484;
+	border-width: 3px;
+	border-left-width: 1px;
+	border-top-width: 1px; 
+	*/
+	margin-right: 333px;
+}
+section img{
+	width: 80%;
+}
+section ul li{
+	list-style-type: none;
+	width: 100px;
+	padding: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #999;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	float: left;
+}
+#clearfix{
+	clear: both;
+}
+section ul li p{
+	margin: 5px;
+	text-align: center;
+}
+section ul li img{
+	width: 100%;
+}
+table{
+	border-collapse: collapse;
+	width: 100%;
+}
+table tr th{
+	color: white;
+	background-color: black;
+	text-align: left;
+}
+aside{
+	width: 273px;
+	background-color: white;
+	padding: 20px;
+	box-shadow: 3px 3px 5px #717171;
+	float: right;
+}
+aside h2{
+	border-style: solid;
+	border-color: #848484;
+	border-width: 0;
+	border-left-width: 4px;
+	padding: 5px;
+}
+aside form{
+	margin: 10px;
+}
+aside form input{
+	margin: 10px;
+}
+aside form select{
+	margin: 10px;
+}
+aside textarea{
+	margin: 10px;
+}
+aside p{
+	margin: 10px;
+}
+#ok{
+	margin: 10px;
+	border-radius: 10px;
+	width: 100%;
+	height: 40px;
+	background-color: #3357D8;
+	color: white;
+	font-size: 18px;
+	margin-left: 0;
+}
+footer p{
+	color: white;
+	text-align: center;
+	padding-top: 10px;
+}
+</style>
+<body>
+	<header><img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！" width="76" height="39"/>
+	  <nav>
+			<ul>
+				<li><a href="1">文字文字</a></li>
+				<li><a href="1">文字文字</a></li>
+				<li><a href="1">文字文字</a></li>
+				<li><a href="1">文字文字</a></li>
+				<li><a href="1">文字文字</a></li>
+		</ul>
+	  </nav>	
+</header>
+	<article>
+		<aside>
+			<h2>下面是注册窗口</h2>
+			<form action="">
+				用户名：
+				<input type="text" placeholder="采用html5的placeholder">
+				<br>
+				密码：
+				<input type="text" value="采用普通value">
+			</form>
+			<form action="">
+				<input type="radio">radio单选按钮
+				<br>
+				<input type="checkbox">checkbox复选按钮
+				<br>
+				<select name="select控件" id="">
+					<option value="test1">op1</option>
+					<option value="test2">op2</option>
+				</select>
+			</form>
+			<br>
+			<textarea name="" id="" cols="30" rows="10" placeholder="placeholder又来啦">删掉我你会看到别的东西</textarea>
+			<br>
+			<p>最后是确认按钮</p>
+			<input type="button" value="确认提交" id="ok">
+		</aside>
+	  <section>
+			<h2>子标题</h2>
+			<h3>孙子标题</h3>
+		<p>
+	台积电(TSMC)28日宣布，已与南京市政府签署协议，将投资30亿美元在南京建立一座12英寸晶圆工厂及一个设计服务中心。
+台积电董事长张忠谋今日在一份声明中称：“近年来，大陆半导体市场增长迅速。此次通过在南京市建立12英寸晶圆厂和设计服务中心，我们希望为客户提供更近距离的支持，同时也有助于我们进一步拓展在大陆的商机。”
+台积电新工厂将位于南京浦口经济开发区。台积电称，新工厂的规划月产能为2万片12寸晶圆，预计于2018年下半年投产。
+		  </p>
+		<img src="http://i.guancha.cn/news/2016/03/29/20160329093619851.jpeg" alt="rt"/></section>
+		<section>
+		  <h2>图片</h2>
+			<ul>
+				<li>
+					<p>图片1</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片2</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片3</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片1</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片2</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片3</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片1</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片2</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片3</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片1</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片2</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+				<li>
+					<p>图片3</p>
+					<img src="http://i.guancha.cn/news/2016/03/28/20160328205331889.jpg" alt="“吃货龙的传人”第二季 ！"/></li>
+			</ul>
+
+			<h2 id="clearfix">列表</h2>
+			<ol>
+				<li>有序</li>
+				<li>有序</li>
+				<li>有序</li>
+			</ol>
+			<p>下面是表格了</p>
+			<table border="" bgcolor="">
+				<tr>
+					<th>表头</th>
+					<th>表头</th>
+					<th>表头</th>
+				</tr>
+				<tr>
+					<td>内容物</td>
+					<td>内容物</td>
+					<td>内容物</td>
+				</tr>
+				<tr>
+					<td>内容物</td>
+					<td>内容物</td>
+					<td>内容物</td>
+				</tr>
+				<tr>
+					<td>内容物</td>
+					<td>内容物</td>
+					<td>内容物</td>
+				</tr>
+				<tr>
+					<td>内容物</td>
+					<td>内容物</td>
+					<td>内容物</td>
+				</tr>
+				<tr>
+					<td>内容物</td>
+					<td>内容物</td>
+					<td>内容物</td>
+				</tr>
+				<tr>
+					<td>内容物</td>
+					<td>内容物</td>
+					<td>内容物</td>
+				</tr>
+				<tr>
+					<td>内容物</td>
+					<td>内容物</td>
+					<td>内容物</td>
+				</tr>
+			</table>
+		</section>
+		
+	</article>
+	<footer>
+		<p>©版权所有</p>
+	</footer>
+</body>
+</html>
