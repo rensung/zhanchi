@@ -1,0 +1,5 @@
+pandoc electric.tex -o elec.doc
+
+pandoc report_paper.tex -o output.docx --extract-media=fig --bibliography=mpi.bib
+
+https://blog.csdn.net/qq_27464321/article/details/88853270
